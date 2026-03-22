@@ -1,0 +1,4 @@
+display_name: "spawn-architect"
+short_description: "Launch the architect agent in one step without manually attaching the architect skill"
+default_prompt: "Spawn the architect agent for this task and have it work as the architecture lead"
+invocation_policy: "implicit"
