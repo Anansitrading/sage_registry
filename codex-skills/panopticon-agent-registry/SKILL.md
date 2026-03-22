@@ -11,6 +11,8 @@ This skill manages the permanent agent registry in:
 
 Use it whenever an agent profile needs to be created, updated, exported, validated, or installed locally.
 
+If the task involves harness structure, live memory, hooks, workflows, knowledge trees, auditability, fork/remix strategy, or human-review gating, use `gitagent-harness-vcs` first and then return here for registration.
+
 ## Source Of Truth
 
 Every agent starts in:
@@ -30,6 +32,9 @@ cd /home/david/Projects/sage_registry && npm install
 # Register or re-register an agent from its gitagent source
 /home/david/.codex/skills/panopticon-agent-registry/scripts/register-agent.sh architect
 
+# Scaffold deeper harness surfaces for a source definition before registration
+/home/david/Projects/sage_registry/codex-skills/gitagent-harness-vcs/scripts/scaffold-harness-vcs.sh /home/david/Projects/sage_registry/definitions/architect
+
 # Validate every catalog entry
 /home/david/.codex/skills/panopticon-agent-registry/scripts/validate-registry.sh
 
@@ -42,7 +47,8 @@ cd /home/david/Projects/sage_registry && npm install
 
 ## Workflow
 
-1. Edit `definitions/<agent-name>/`.
+1. Shape the source harness in `definitions/<agent-name>/`.
+   - For deeper harness work, use `gitagent-harness-vcs`.
 2. Re-run registration.
 3. Validate the registry.
 4. Verify parity.

@@ -1,0 +1,4 @@
+display_name: "Gitagent Harness VCS"
+short_description: "Design and evolve gitagent repos as version-controlled agent harnesses"
+default_prompt: "Treat this gitagent repository as a harness with memory, knowledge, hooks, audit, CI, and human review surfaces"
+invocation_policy: "implicit"
