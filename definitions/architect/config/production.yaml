@@ -1,0 +1,6 @@
+log_level: warn
+compliance_mode: true
+memory_autosave: false
+audit_logging: true
+default_review_mode: approved_pull_request
+artifact_audit_required: true

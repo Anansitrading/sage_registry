@@ -1,0 +1,17 @@
+layers:
+  - name: working
+    path: MEMORY.md
+    max_lines: 200
+    format: markdown
+  - name: runtime
+    path: runtime/
+    format: markdown
+    rotation: weekly
+update_triggers:
+  - on_session_end
+  - on_explicit_save
+  - on_milestone
+archive_policy:
+  max_entries: 365
+  compress_after: 90d
+  retention_period: 365d

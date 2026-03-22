@@ -1,0 +1,5 @@
+log_level: info
+compliance_mode: true
+memory_autosave: false
+default_review_mode: pull_request
+artifact_audit_required: true

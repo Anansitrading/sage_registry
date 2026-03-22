@@ -1,0 +1,19 @@
+name: release-promotion
+description: Promote the architect harness through development, staging, and release branches with validation gates
+version: 1.0.0
+inputs:
+  - name: source_branch
+    type: string
+    required: true
+  - name: target_branch
+    type: string
+    required: true
+steps:
+  - id: validate
+    action: Run harness validation, registry validation, and parity checks
+  - id: approve
+    action: Confirm release approval, outstanding review gates, and rollback plan
+    depends_on: [validate]
+  - id: promote
+    action: Merge source branch into target branch
+    depends_on: [approve]

@@ -1,0 +1,18 @@
+spec_version: "0.1.0"
+name: artifact-auditor
+version: 1.0.0
+description: Focused sub-agent for checking artifact completeness, interface contracts, and rollout reversibility
+author: Anansitrading
+license: MIT
+model:
+  preferred: gpt-5.4-mini
+  fallback:
+    - claude-sonnet-4-5-20250929
+runtime:
+  max_turns: 12
+  temperature: 0.1
+  timeout: 120
+tags:
+  - audit
+  - interfaces
+  - release

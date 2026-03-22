@@ -9,14 +9,83 @@ model:
   fallback:
     - claude-opus-4-6
     - claude-sonnet-4-5-20250929
+  constraints:
+    temperature: 0.1
+    max_tokens: 8192
 skills:
   - architecture-specification
+agents:
+  research-scout:
+    description: Verifies current facts, standards, and implementation-defining details before architectural commitment
+    delegation:
+      mode: auto
+      triggers:
+        - current_facts_required
+        - specification_is_stale_risk
+        - standard_or_vendor_needs_verification
+  artifact-auditor:
+    description: Checks specifications for interface completeness, machine-parseability, and reversible rollout design
+    delegation:
+      mode: auto
+      triggers:
+        - final_artifact_review
+        - interface_completeness_check
+        - rollout_or_migration_validation
+delegation:
+  mode: auto
+runtime:
+  max_turns: 30
+  temperature: 0.1
+  timeout: 240
+compliance:
+  risk_tier: standard
+  supervision:
+    designated_supervisor: registry-maintainer
+    review_cadence: monthly
+    human_in_the_loop: conditional
+    escalation_triggers:
+      - confidence_below: 0.8
+      - action_type: production_release
+      - custom: durable memory or policy surfaces are being changed
+    override_capability: true
+    kill_switch: true
+  recordkeeping:
+    audit_logging: true
+    log_format: structured_json
+    retention_period: 18m
+    log_contents:
+      - tool_calls
+      - decision_pathways
+      - model_version
+      - timestamps
+    immutable: false
+  model_risk:
+    inventory_id: ARCH-HARNESS-0001
+    validation_cadence: quarterly
+    validation_type: change_based
+    conceptual_soundness: compliance/risk-assessment.md
+    ongoing_monitoring: true
+    outcomes_analysis: false
+    drift_detection: true
+    parallel_testing: false
+  data_governance:
+    pii_handling: redact
+    data_classification: internal
+    consent_required: false
+    cross_border: false
+    bias_testing: false
+    lda_search: false
 tags:
   - architecture
   - vcs
   - multi-agent
   - system-design
   - research
+  - gitagent
+  - harness-vcs
+  - change-control
 metadata:
-  registry: panopticon-swarm
+  registry: sage_registry
   source_prompt: the-harness-architect
+  operating_mode: full-harness
+  review_policy: pull-request-required-for-durable-state

@@ -1,0 +1,17 @@
+schedule:
+  - type: full_validation
+    cadence: monthly
+    last_completed: null
+    owner: harness-maintainer
+  - type: architecture-surface-review
+    cadence: monthly
+    last_completed: null
+    owner: reviewer
+  - type: supervisory_review
+    cadence: monthly
+    last_completed: null
+    owner: human-reviewer
+  - type: audit_review
+    cadence: quarterly
+    last_completed: null
+    owner: audit-owner

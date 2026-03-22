@@ -1,0 +1,16 @@
+name: review-memory-update
+description: Human-reviewed flow for merging durable memory, policy, or skill learning into the architect harness
+version: 1.0.0
+inputs:
+  - name: branch
+    type: string
+    required: true
+steps:
+  - id: validate
+    action: Validate the harness and inspect changed memory, policy, and hook surfaces
+  - id: review
+    action: Open PR for human review of durable memory, policy, or skill updates
+    depends_on: [validate]
+  - id: merge
+    action: Merge only after explicit approval and artifact audit
+    depends_on: [review]

@@ -1,0 +1,36 @@
+hooks:
+  on_session_start:
+    - script: scripts/on-session-start.sh
+      description: Bootstrap architectural context and create an audit trail entry for the session
+      timeout: 10
+      fail_open: false
+  pre_tool_use:
+    - script: scripts/pre-tool-use.sh
+      description: Record sensitive research, registry, and release-affecting tool use before execution
+      timeout: 10
+      fail_open: false
+  post_tool_use:
+    - script: scripts/post-tool-use.sh
+      description: Record tool results that materially affect architectural recommendations or release state
+      timeout: 10
+      fail_open: false
+  pre_response:
+    - script: scripts/pre-response.sh
+      description: Check that responses exposing final artifacts include decision, rationale, and next-step clarity
+      timeout: 10
+      fail_open: false
+  post_response:
+    - script: scripts/post-response.sh
+      description: Persist audit metadata and decision traces after each response
+      timeout: 10
+      fail_open: false
+  on_error:
+    - script: scripts/on-error.sh
+      description: Persist failure context so architecture and release incidents remain reviewable
+      timeout: 10
+      fail_open: true
+  on_session_end:
+    - script: scripts/on-session-end.sh
+      description: Finalize the audit trail and persist memory-facing session summaries
+      timeout: 10
+      fail_open: false

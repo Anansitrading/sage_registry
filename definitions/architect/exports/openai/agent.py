@@ -88,6 +88,9 @@ default_prompt: >-
   Work this as The Harness Architect and produce decisions, tradeoffs, and
   implementation-ready artifacts
 invocation_policy: implicit
-""",
+
+
+## Compliance Constraints
+- Redact all PII""",
     model="gpt-5.4",
 )

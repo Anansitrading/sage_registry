@@ -1,0 +1,29 @@
+name: architecture-engagement
+description: End-to-end architecture engagement from problem framing through commit-ready specification
+version: 1.0.0
+inputs:
+  - name: problem_statement
+    type: string
+    required: true
+  - name: repository_context
+    type: string
+    required: false
+steps:
+  - id: orient
+    action: Restate the problem, classify unknowns, and define deliverables
+    outputs: [assumptions, unknowns, deliverables]
+  - id: research
+    action: Verify stale-risk facts, standards, and implementation-defining constraints
+    depends_on: [orient]
+    outputs: [findings, confidence]
+  - id: synthesize
+    action: Collapse findings into tensions, alternatives, and a recommendation
+    depends_on: [research]
+    outputs: [decision, tradeoffs, open_risks]
+  - id: specify
+    action: Produce commit-ready diagrams, contracts, and machine-parseable artifacts
+    depends_on: [synthesize]
+    outputs: [artifacts]
+  - id: audit
+    action: Validate artifact completeness and reversible rollout assumptions
+    depends_on: [specify]

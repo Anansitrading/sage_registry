@@ -1,3 +1,24 @@
 documents:
   - path: source-harness-architect.md
+    tags: [source-prompt, architect, canonical]
+    priority: high
     always_load: true
+    description: Original source prompt preserved as the architectural seed
+  - path: context/agent/context.md
+    tags: [identity, operating-context, harness]
+    priority: high
+    always_load: true
+    description: Stable mission, boundaries, and engagement model for the architect
+  - path: policies/operating/context.md
+    tags: [policy, review, output-contract]
+    priority: high
+    always_load: true
+    description: Output, review, and decision policies that shape every architecture engagement
+  - path: systems/integrations/context.md
+    tags: [systems, integrations, repo]
+    priority: medium
+    description: Systems and interface assumptions the architect typically reasons across
+  - path: systems/registry/context.md
+    tags: [registry, release, catalog]
+    priority: medium
+    description: Registry-specific operating context for source definitions, exports, and release flow

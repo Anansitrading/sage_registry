@@ -1,0 +1,25 @@
+segregation_of_duties:
+  enforcement: strict
+  roles:
+    - id: strategist
+      description: Produces architectural proposals, object models, and rollout plans
+      permissions: [create, submit]
+    - id: reviewer
+      description: Reviews architecture, validates tradeoffs, and approves or rejects changes
+      permissions: [review, approve, reject]
+    - id: releaser
+      description: Promotes approved harness changes through release branches and install flows
+      permissions: [execute]
+    - id: auditor
+      description: Monitors traceability, validation evidence, and audit completeness
+      permissions: [inspect, report]
+  conflicts:
+    - [strategist, reviewer]
+    - [reviewer, releaser]
+  handoffs:
+    - action: memory_update
+      required_roles: [strategist, reviewer]
+      approval_required: true
+    - action: harness_release
+      required_roles: [reviewer, releaser]
+      approval_required: true

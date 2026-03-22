@@ -1,0 +1,24 @@
+name: harness-remix
+description: Controlled fork or remix workflow for deriving a new harness from an existing agent
+version: 1.0.0
+inputs:
+  - name: upstream_agent
+    type: string
+    required: true
+  - name: remix_goal
+    type: string
+    required: true
+steps:
+  - id: classify
+    action: Decide whether the new harness should extend, depend on, or fork the upstream agent
+    outputs: [strategy]
+  - id: boundary-review
+    action: Identify which surfaces stay upstream versus which become local governance
+    depends_on: [classify]
+    outputs: [source_of_truth_map]
+  - id: scaffold
+    action: Create local harness surfaces and review gates for the remix
+    depends_on: [boundary-review]
+  - id: approve
+    action: Require human approval before promoting the remixed harness to main
+    depends_on: [scaffold]
