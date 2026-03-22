@@ -1,18 +1,28 @@
 {
-  "name": "panopticon-agent-registry",
+  "name": "@anansitrading/sage_registry",
+  "version": "1.0.0",
   "private": true,
   "type": "module",
-  "description": "Internal gitagent-backed registry for panopticon_swarm agent profiles",
+  "description": "Private registry forked from open-gitagent/registry with gitagent source definitions and Claude/Codex parity enforcement",
   "scripts": {
     "register": "node scripts/register-agent.mjs",
     "test:parity": "node scripts/test-parity.mjs",
-    "validate": "node scripts/validate.mjs",
-    "build:index": "node scripts/build-index.mjs"
+    "validate:upstream": "node scripts/run-upstream-validate.mjs",
+    "validate:private": "node scripts/validate.mjs",
+    "validate": "npm run validate:upstream && npm run validate:private",
+    "build:index": "npx tsx scripts/build-index.ts",
+    "build:site": "cd site && npm run build",
+    "build": "npm run build:index && npm run build:site",
+    "dev": "cd site && npm run dev"
   },
   "dependencies": {
     "@shreyaskapale/gitagent": "0.1.7",
+    "js-yaml": "^4.1.0"
+  },
+  "devDependencies": {
     "ajv": "^8.17.1",
     "ajv-formats": "^3.0.1",
-    "js-yaml": "^4.1.0"
+    "tsx": "^4.19.0",
+    "typescript": "^5.7.0"
   }
 }

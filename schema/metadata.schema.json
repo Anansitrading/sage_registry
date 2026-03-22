@@ -2,51 +2,46 @@
   "$schema": "http://json-schema.org/draft-07/schema#",
   "$id": "https://registry.gitagent.sh/schema/metadata.schema.json",
   "title": "gitagent Registry Metadata",
-  "description": "Schema for agent metadata.json in the Panopticon registry",
+  "description": "Schema for agent metadata.json in the gitagent registry",
   "type": "object",
-  "required": [
-    "name",
-    "author",
-    "description",
-    "repository",
-    "version",
-    "category",
-    "tags",
-    "license",
-    "model",
-    "adapters"
-  ],
+  "required": ["name", "author", "description", "repository", "version", "category", "tags", "license", "model", "adapters"],
   "additionalProperties": false,
   "properties": {
     "name": {
       "type": "string",
       "pattern": "^[a-z0-9][a-z0-9-]*[a-z0-9]$",
       "minLength": 2,
-      "maxLength": 64
+      "maxLength": 64,
+      "description": "Agent name (lowercase, hyphens only)"
     },
     "author": {
       "type": "string",
       "pattern": "^[a-zA-Z0-9][a-zA-Z0-9-]*$",
       "minLength": 1,
-      "maxLength": 64
+      "maxLength": 64,
+      "description": "GitHub username of the author"
     },
     "description": {
       "type": "string",
       "minLength": 10,
-      "maxLength": 200
+      "maxLength": 200,
+      "description": "Short description of the agent"
     },
     "repository": {
       "type": "string",
       "format": "uri",
-      "pattern": "^https://github\\.com/"
+      "pattern": "^https://github\\.com/",
+      "description": "Public GitHub repository URL"
     },
     "path": {
       "type": "string",
-      "maxLength": 256
+      "maxLength": 256,
+      "description": "Subdirectory within repo where agent lives (default: root)"
     },
     "version": {
       "type": "string",
-      "pattern": "^\\d+\\.\\d+\\.\\d+"
+      "pattern": "^\\d+\\.\\d+\\.\\d+",
+      "description": "Semver version"
     },
     "category": {
       "type": "string",
@@ -65,7 +60,8 @@
         "creative",
         "education",
         "other"
-      ]
+      ],
+      "description": "Agent category"
     },
     "tags": {
       "type": "array",
@@ -76,17 +72,20 @@
       },
       "minItems": 1,
       "maxItems": 10,
-      "uniqueItems": true
+      "uniqueItems": true,
+      "description": "Tags for discoverability"
     },
     "license": {
       "type": "string",
       "minLength": 1,
-      "maxLength": 64
+      "maxLength": 64,
+      "description": "SPDX license identifier"
     },
     "model": {
       "type": "string",
       "minLength": 1,
-      "maxLength": 128
+      "maxLength": 128,
+      "description": "Preferred model identifier"
     },
     "adapters": {
       "type": "array",
@@ -96,15 +95,18 @@
         "maxLength": 64
       },
       "minItems": 1,
-      "uniqueItems": true
+      "uniqueItems": true,
+      "description": "Supported adapters"
     },
     "icon": {
       "type": "boolean",
-      "default": false
+      "default": false,
+      "description": "Whether icon.png is included (256x256 PNG)"
     },
     "banner": {
       "type": "boolean",
-      "default": false
+      "default": false,
+      "description": "Whether banner.png is included (1200x630 PNG, used for social sharing / OG image)"
     }
   }
 }

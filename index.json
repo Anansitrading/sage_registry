@@ -1,15 +1,10 @@
 {
-  "registry": "sage_registry",
-  "repository_url": "https://github.com/Anansitrading/sage_registry",
-  "total": 1,
-  "generated_at": "2026-03-22T22:05:56.508Z",
   "agents": [
     {
       "name": "architect",
       "author": "Anansitrading",
       "description": "System architect for AI agent harnesses, VCS design, and architecture-grade technical specifications",
       "repository": "https://github.com/Anansitrading/sage_registry",
-      "path": "definitions/architect",
       "version": "1.0.0",
       "category": "developer-tools",
       "tags": [
@@ -27,21 +22,22 @@
         "openai",
         "system-prompt"
       ],
-      "icon": false,
-      "banner": false,
-      "catalog_path": "agents/Anansitrading__architect",
-      "definition_path": "definitions/architect",
-      "registry_readme_path": "agents/Anansitrading__architect/README.md",
-      "exports": {
-        "claude_code": "definitions/architect/exports/claude-code/CLAUDE.md",
-        "codex_skill": "definitions/architect/exports/codex/skills/architect/SKILL.md",
-        "openai": "definitions/architect/exports/openai/agent.py",
-        "system_prompt": "definitions/architect/exports/system-prompt/SYSTEM_PROMPT.md"
+      "icon": null,
+      "banner": null,
+      "github": {
+        "stars": 0,
+        "forks": 0,
+        "issues": 0,
+        "language": null,
+        "avatar": "",
+        "social_preview": "https://github.githubassets.com/assets/github-logo-55c5b9a1fe52.png",
+        "description": null
       },
+      "readme": "https://raw.githubusercontent.com/Anansitrading/sage_registry/main/agents/Anansitrading__architect/README.md",
       "added_at": "2026-03-22",
-      "updated_at": "2026-03-22T22:05:56.461Z",
-      "readme_preview": "# architect\n\nSystem architect for AI agent harnesses, VCS design, and architecture-grade technical specifications\n\n## Registry Entry\n",
-      "registry": "sage_registry"
+      "path": "definitions/architect"
     }
-  ]
+  ],
+  "total": 1,
+  "generated_at": "2026-03-22T22:15:23.756Z"
 }

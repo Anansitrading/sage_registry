@@ -105,7 +105,7 @@ ensureDir(catalogRoot);
 writeJson(join(catalogRoot, 'metadata.json'), metadata);
 writeText(join(catalogRoot, 'README.md'), `${buildCatalogReadme(manifest, metadata).trim()}\n`);
 
-execFileSync('node', ['scripts/build-index.mjs'], {
+execFileSync('npx', ['tsx', 'scripts/build-index.ts'], {
   cwd: ROOT,
   stdio: 'inherit',
 });

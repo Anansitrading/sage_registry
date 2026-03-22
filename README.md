@@ -1,41 +1,30 @@
 # sage_registry
 
-This repository is the permanent, versioned home for registered agent profiles and their generated exports.
+`sage_registry` is a private registry built on top of the upstream [`open-gitagent/registry`](https://github.com/open-gitagent/registry.git) layout.
 
-It combines two roles:
+It keeps the upstream registry structure for `agents/`, schema validation, index generation, site assets, and CI, while adding a private source-of-truth layer for agent definitions and enforced Claude/Codex parity.
 
-- `definitions/` holds each agent's canonical `gitagent` source of truth
-- `agents/` holds the registry catalog entries in the `open-gitagent/registry` style
+## How It Works
 
-## Source Of Truth
-
-Every agent definition starts as a `gitagent` directory:
-
-```text
-definitions/<agent-name>/
-```
-
-That definition is then exported into:
-
-- Claude Code format via `gitagent export --format claude-code`
-- OpenAI SDK format via `gitagent export --format openai`
-- Codex format via `scripts/lib.mjs` and the Codex skill exporter
+- `definitions/` holds each agent's canonical `gitagent` source definition
+- `agents/` holds the registry catalog entries in the upstream registry format
+- `scripts/register-agent.mjs` exports the source definition into Claude Code, Codex, OpenAI, and system-prompt outputs
+- `scripts/test-parity.mjs` verifies the generated Claude and Codex exports stay in parity
 
 ## Layout
 
 ```text
 sage_registry/
-├── agents/                  # Registry catalog entries
+├── agents/                  # Upstream registry-style catalog entries
 ├── codex-skills/            # Versioned Codex utility skills for registry operations
-├── definitions/             # Canonical gitagent definitions
-├── index.json               # Built registry index
-├── schema/                  # Registry metadata schema
-└── scripts/                 # Registration, export, validation
+├── definitions/             # Canonical private gitagent definitions
+├── index.json               # Registry index
+├── schema/                  # Metadata schema
+├── scripts/                 # Upstream + private registry automation
+└── site/                    # Upstream registry website
 ```
 
 ## Commands
-
-Run these from `agent-registry/`:
 
 ```bash
 npm install
@@ -53,8 +42,8 @@ npm run build:index
 - Source skill metadata must be represented in both exports
 - Codex reference copies for source skills and knowledge must exist
 
-## Standards
+## Upstream Basis
 
-- Upstream registry pattern: `https://github.com/open-gitagent/registry.git`
-- Upstream gitagent source: `https://github.com/open-gitagent/gitagent.git`
-- This registry keeps both Claude Code and Codex exports in-repo so agent profiles are never single-homed again.
+- Registry base: `https://github.com/open-gitagent/registry.git`
+- Agent definition standard: `https://github.com/open-gitagent/gitagent.git`
+- Local custom layer: `definitions/`, `codex-skills/`, parity enforcement, and Codex export installation workflow

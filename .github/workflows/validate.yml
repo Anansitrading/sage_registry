@@ -1,0 +1,76 @@
+name: Validate Submission
+
+on:
+  pull_request:
+    paths:
+      - 'agents/**'
+      - 'definitions/**'
+      - 'scripts/**'
+      - 'schema/**'
+      - 'package.json'
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Detect changed agent folders
+        id: changed
+        run: |
+          FOLDERS=$(git diff --name-only ${{ github.event.pull_request.base.sha }}..HEAD -- agents/ \
+            | cut -d'/' -f1-2 \
+            | sort -u \
+            | tr '\n' ' ')
+          echo "folders=$FOLDERS" >> "$GITHUB_OUTPUT"
+          echo "Changed folders: $FOLDERS"
+
+      - name: Validate submissions
+        id: validate
+        run: |
+          npm run validate
+
+      - name: Comment on PR
+        if: always()
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const { data: comments } = await github.rest.issues.listComments({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              issue_number: context.issue.number,
+            });
+
+            const botComment = comments.find(c =>
+              c.user.type === 'Bot' && c.body.includes('## Registry Validation')
+            );
+
+            const status = '${{ steps.validate.outcome }}' === 'success' ? '✓ Passed' : '✗ Failed';
+            const emoji = '${{ steps.validate.outcome }}' === 'success' ? '✅' : '❌';
+
+            const body = `## Registry Validation ${emoji}\n\n**Status:** ${status}\n\nChanged folders: \`${{ steps.changed.outputs.folders }}\`\n\n---\n*Validated by CI*`;
+
+            if (botComment) {
+              await github.rest.issues.updateComment({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                comment_id: botComment.id,
+                body,
+              });
+            } else {
+              await github.rest.issues.createComment({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                issue_number: context.issue.number,
+                body,
+              });
+            }
