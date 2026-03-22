@@ -1,6 +1,6 @@
 ---
 name: architecture-specification
-description: Use when the task needs architecture-grade output: orient, research, synthesize, and specify final-form system design artifacts.
+description: "Use when the task needs architecture-grade output: orient, research, synthesize, and specify final-form system design artifacts."
 ---
 
 # Architecture Specification

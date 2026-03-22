@@ -2,7 +2,7 @@
   "registry": "sage_registry",
   "repository_url": "https://github.com/Anansitrading/sage_registry",
   "total": 1,
-  "generated_at": "2026-03-22T21:49:34.915Z",
+  "generated_at": "2026-03-22T21:55:29.846Z",
   "agents": [
     {
       "name": "architect",
@@ -39,7 +39,7 @@
         "system_prompt": "definitions/architect/exports/system-prompt/SYSTEM_PROMPT.md"
       },
       "added_at": "2026-03-22",
-      "updated_at": "2026-03-22T21:49:34.867Z",
+      "updated_at": "2026-03-22T21:55:29.806Z",
       "readme_preview": "# architect\n\nSystem architect for AI agent harnesses, VCS design, and architecture-grade technical specifications\n\n## Registry Entry\n",
       "registry": "sage_registry"
     }
