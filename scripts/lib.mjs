@@ -12,7 +12,6 @@ import { dirname, join, resolve } from 'node:path';
 import yaml from 'js-yaml';
 
 export const ROOT = resolve(import.meta.dirname, '..');
-export const REPO_ROOT = resolve(ROOT, '..');
 
 export function ensureDir(path) {
   mkdirSync(path, { recursive: true });
@@ -45,7 +44,7 @@ export function definitionDir(agentName) {
 }
 
 export function definitionRelPath(agentName) {
-  return `agent-registry/definitions/${agentName}`;
+  return `definitions/${agentName}`;
 }
 
 export function catalogDir(author, agentName) {

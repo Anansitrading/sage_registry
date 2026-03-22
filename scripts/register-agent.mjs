@@ -101,4 +101,4 @@ execFileSync('node', ['scripts/build-index.mjs'], {
   stdio: 'inherit',
 });
 
-console.log(`Registered ${manifest.name} at ${join('agent-registry', 'agents', `${config.author}__${manifest.name}`)}`);
+console.log(`Registered ${manifest.name} at ${join('agents', `${config.author}__${manifest.name}`)}`);

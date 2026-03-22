@@ -28,9 +28,9 @@ function buildIndex() {
 
     agents.push({
       ...metadata,
-      catalog_path: `agent-registry/agents/${folder}`,
+      catalog_path: `agents/${folder}`,
       definition_path: definitionPath,
-      registry_readme_path: `agent-registry/agents/${folder}/README.md`,
+      registry_readme_path: `agents/${folder}/README.md`,
       exports: exportBase
         ? {
             claude_code: `${exportBase}/claude-code/CLAUDE.md`,
@@ -39,7 +39,7 @@ function buildIndex() {
             system_prompt: `${exportBase}/system-prompt/SYSTEM_PROMPT.md`,
           }
         : {},
-      added_at: gitAddedDate(`agent-registry/agents/${folder}`),
+      added_at: gitAddedDate(`agents/${folder}`),
       updated_at: mtimeIso(metadataPath),
       readme_preview: existsSync(readmePath)
         ? readFileSync(readmePath, 'utf-8').split('\n').slice(0, 6).join('\n')

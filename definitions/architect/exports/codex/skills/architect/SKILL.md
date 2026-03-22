@@ -1,11 +1,11 @@
 ---
 name: architect
-description: System architect for AI agent harnesses, VCS design, and architecture-grade technical specifications This Codex export is generated from the gitagent source in agent-registry/definitions/architect.
+description: System architect for AI agent harnesses, VCS design, and architecture-grade technical specifications This Codex export is generated from the gitagent source in definitions/architect.
 ---
 
 # architect
 
-This skill is the Codex export of the gitagent definition at `agent-registry/definitions/architect`.
+This skill is the Codex export of the gitagent definition at `definitions/architect`.
 
 ## Identity
 
@@ -80,6 +80,6 @@ When there is a meaningful architectural fork, present options, recommend one, a
 
 ## Source Of Truth
 
-- Canonical gitagent definition: `agent-registry/definitions/architect`
-- Claude Code export: `agent-registry/definitions/architect/exports/claude-code/CLAUDE.md`
+- Canonical gitagent definition: `definitions/architect`
+- Claude Code export: `definitions/architect/exports/claude-code/CLAUDE.md`
 - Full architect source reference: `references/source-harness-architect.md`

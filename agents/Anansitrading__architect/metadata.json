@@ -2,8 +2,8 @@
   "name": "architect",
   "author": "Anansitrading",
   "description": "System architect for AI agent harnesses, VCS design, and architecture-grade technical specifications",
-  "repository": "https://github.com/Anansitrading/panopticon_swarm",
-  "path": "agent-registry/definitions/architect",
+  "repository": "https://github.com/Anansitrading/sage_registry",
+  "path": "definitions/architect",
   "version": "1.0.0",
   "category": "developer-tools",
   "tags": [

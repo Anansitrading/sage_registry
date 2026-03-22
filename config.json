@@ -1,7 +1,7 @@
 {
-  "name": "panopticon_swarm Agent Registry",
+  "name": "sage_registry",
   "author": "Anansitrading",
-  "repository_url": "https://github.com/Anansitrading/panopticon_swarm",
-  "repository_branch": "develop",
+  "repository_url": "https://github.com/Anansitrading/sage_registry",
+  "repository_branch": "main",
   "gitagent_source": "https://github.com/open-gitagent/gitagent.git"
 }

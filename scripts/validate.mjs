@@ -4,7 +4,6 @@ import Ajv from 'ajv';
 import addFormats from 'ajv-formats';
 import {
   ROOT,
-  REPO_ROOT,
   listCatalogFolders,
   parseArgs,
   readJson,
@@ -51,7 +50,7 @@ function validateFolder(folder) {
   }
 
   if (typeof metadata.path === 'string' && metadata.path.length > 0) {
-    const definitionRoot = join(REPO_ROOT, metadata.path);
+    const definitionRoot = join(ROOT, metadata.path);
     const required = [
       'agent.yaml',
       'SOUL.md',
