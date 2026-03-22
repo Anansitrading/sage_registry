@@ -11,7 +11,7 @@
     "validate:private": "node scripts/validate.mjs",
     "validate": "npm run validate:upstream && npm run validate:private",
     "build:index": "npx tsx scripts/build-index.ts",
-    "build:site": "cd site && npm run build",
+    "build:site": "cp index.json site/public/index.json && cd site && npm run build",
     "build": "npm run build:index && npm run build:site",
     "dev": "cd site && npm run dev"
   },
