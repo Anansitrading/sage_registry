@@ -1,0 +1,47 @@
+{
+  "registry": "Panopticon_Swarm Agent Registry",
+  "repository_url": "https://github.com/Anansitrading/panopticon_swarm",
+  "total": 1,
+  "generated_at": "2026-03-22T19:18:41.614Z",
+  "agents": [
+    {
+      "name": "architect",
+      "author": "Anansitrading",
+      "description": "System architect for AI agent harnesses, VCS design, and architecture-grade technical specifications",
+      "repository": "https://github.com/Anansitrading/panopticon_swarm",
+      "path": "agent-registry/definitions/architect",
+      "version": "1.0.0",
+      "category": "developer-tools",
+      "tags": [
+        "architecture",
+        "vcs",
+        "multi-agent",
+        "system-design",
+        "research"
+      ],
+      "license": "MIT",
+      "model": "gpt-5.4",
+      "adapters": [
+        "claude-code",
+        "codex",
+        "openai",
+        "system-prompt"
+      ],
+      "icon": false,
+      "banner": false,
+      "catalog_path": "agent-registry/agents/Anansitrading__architect",
+      "definition_path": "agent-registry/definitions/architect",
+      "registry_readme_path": "agent-registry/agents/Anansitrading__architect/README.md",
+      "exports": {
+        "claude_code": "agent-registry/definitions/architect/exports/claude-code/CLAUDE.md",
+        "codex_skill": "agent-registry/definitions/architect/exports/codex/skills/architect/SKILL.md",
+        "openai": "agent-registry/definitions/architect/exports/openai/agent.py",
+        "system_prompt": "agent-registry/definitions/architect/exports/system-prompt/SYSTEM_PROMPT.md"
+      },
+      "added_at": "2026-03-22",
+      "updated_at": "2026-03-22T19:18:41.562Z",
+      "readme_preview": "# architect\n\nSystem architect for AI agent harnesses, VCS design, and architecture-grade technical specifications\n\n## Registry Entry\n",
+      "registry": "Panopticon_Swarm Agent Registry"
+    }
+  ]
+}

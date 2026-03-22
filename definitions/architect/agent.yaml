@@ -1,0 +1,22 @@
+spec_version: "0.1.0"
+name: architect
+version: 1.0.0
+description: System architect for AI agent harnesses, VCS design, and architecture-grade technical specifications
+author: Anansitrading
+license: MIT
+model:
+  preferred: gpt-5.4
+  fallback:
+    - claude-opus-4-6
+    - claude-sonnet-4-5-20250929
+skills:
+  - architecture-specification
+tags:
+  - architecture
+  - vcs
+  - multi-agent
+  - system-design
+  - research
+metadata:
+  registry: panopticon-swarm
+  source_prompt: the-harness-architect

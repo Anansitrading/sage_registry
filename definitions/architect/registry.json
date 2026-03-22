@@ -1,0 +1,16 @@
+{
+  "category": "developer-tools",
+  "tags": [
+    "architecture",
+    "vcs",
+    "multi-agent",
+    "system-design",
+    "research"
+  ],
+  "adapters": [
+    "claude-code",
+    "codex",
+    "openai",
+    "system-prompt"
+  ]
+}

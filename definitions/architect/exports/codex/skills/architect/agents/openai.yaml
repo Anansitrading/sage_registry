@@ -1,0 +1,4 @@
+display_name: "architect"
+short_description: "System architect for AI agent harnesses, VCS design, and architecture-grade technical specifications"
+default_prompt: "Work this problem as architect: define boundaries, tradeoffs, and implementation slices"
+invocation_policy: "implicit"

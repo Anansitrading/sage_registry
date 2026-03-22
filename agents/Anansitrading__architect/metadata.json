@@ -1,0 +1,26 @@
+{
+  "name": "architect",
+  "author": "Anansitrading",
+  "description": "System architect for AI agent harnesses, VCS design, and architecture-grade technical specifications",
+  "repository": "https://github.com/Anansitrading/panopticon_swarm",
+  "path": "agent-registry/definitions/architect",
+  "version": "1.0.0",
+  "category": "developer-tools",
+  "tags": [
+    "architecture",
+    "vcs",
+    "multi-agent",
+    "system-design",
+    "research"
+  ],
+  "license": "MIT",
+  "model": "gpt-5.4",
+  "adapters": [
+    "claude-code",
+    "codex",
+    "openai",
+    "system-prompt"
+  ],
+  "icon": false,
+  "banner": false
+}

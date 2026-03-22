@@ -1,0 +1,110 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://registry.gitagent.sh/schema/metadata.schema.json",
+  "title": "gitagent Registry Metadata",
+  "description": "Schema for agent metadata.json in the Panopticon registry",
+  "type": "object",
+  "required": [
+    "name",
+    "author",
+    "description",
+    "repository",
+    "version",
+    "category",
+    "tags",
+    "license",
+    "model",
+    "adapters"
+  ],
+  "additionalProperties": false,
+  "properties": {
+    "name": {
+      "type": "string",
+      "pattern": "^[a-z0-9][a-z0-9-]*[a-z0-9]$",
+      "minLength": 2,
+      "maxLength": 64
+    },
+    "author": {
+      "type": "string",
+      "pattern": "^[a-zA-Z0-9][a-zA-Z0-9-]*$",
+      "minLength": 1,
+      "maxLength": 64
+    },
+    "description": {
+      "type": "string",
+      "minLength": 10,
+      "maxLength": 200
+    },
+    "repository": {
+      "type": "string",
+      "format": "uri",
+      "pattern": "^https://github\\.com/"
+    },
+    "path": {
+      "type": "string",
+      "maxLength": 256
+    },
+    "version": {
+      "type": "string",
+      "pattern": "^\\d+\\.\\d+\\.\\d+"
+    },
+    "category": {
+      "type": "string",
+      "enum": [
+        "developer-tools",
+        "data-engineering",
+        "devops",
+        "compliance",
+        "security",
+        "documentation",
+        "testing",
+        "research",
+        "productivity",
+        "finance",
+        "customer-support",
+        "creative",
+        "education",
+        "other"
+      ]
+    },
+    "tags": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "pattern": "^[a-z0-9-]+$",
+        "maxLength": 32
+      },
+      "minItems": 1,
+      "maxItems": 10,
+      "uniqueItems": true
+    },
+    "license": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 64
+    },
+    "model": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 128
+    },
+    "adapters": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 64
+      },
+      "minItems": 1,
+      "uniqueItems": true
+    },
+    "icon": {
+      "type": "boolean",
+      "default": false
+    },
+    "banner": {
+      "type": "boolean",
+      "default": false
+    }
+  }
+}

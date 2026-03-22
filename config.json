@@ -1,0 +1,7 @@
+{
+  "name": "Panopticon_Swarm Agent Registry",
+  "author": "Anansitrading",
+  "repository_url": "https://github.com/Anansitrading/panopticon_swarm",
+  "repository_branch": "develop",
+  "gitagent_source": "https://github.com/open-gitagent/gitagent.git"
+}

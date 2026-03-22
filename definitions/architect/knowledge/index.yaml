@@ -1,0 +1,3 @@
+documents:
+  - path: source-harness-architect.md
+    always_load: true
