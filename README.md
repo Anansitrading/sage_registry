@@ -24,7 +24,7 @@ That definition is then exported into:
 ## Layout
 
 ```text
-agent-registry/
+sage_registry/
 ├── agents/                  # Registry catalog entries
 ├── definitions/             # Canonical gitagent definitions
 ├── index.json               # Built registry index
