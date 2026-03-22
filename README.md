@@ -1,4 +1,4 @@
-# Panopticon_Swarm Agent Registry
+# panopticon_swarm Agent Registry
 
 This directory is the permanent, versioned home for Panopticon agent profiles.
 

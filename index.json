@@ -1,8 +1,8 @@
 {
-  "registry": "Panopticon_Swarm Agent Registry",
+  "registry": "panopticon_swarm Agent Registry",
   "repository_url": "https://github.com/Anansitrading/panopticon_swarm",
   "total": 1,
-  "generated_at": "2026-03-22T19:18:41.614Z",
+  "generated_at": "2026-03-22T19:20:31.231Z",
   "agents": [
     {
       "name": "architect",
@@ -41,7 +41,7 @@
       "added_at": "2026-03-22",
       "updated_at": "2026-03-22T19:18:41.562Z",
       "readme_preview": "# architect\n\nSystem architect for AI agent harnesses, VCS design, and architecture-grade technical specifications\n\n## Registry Entry\n",
-      "registry": "Panopticon_Swarm Agent Registry"
+      "registry": "panopticon_swarm Agent Registry"
     }
   ]
 }

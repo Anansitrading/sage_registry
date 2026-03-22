@@ -2,7 +2,7 @@
   "name": "panopticon-agent-registry",
   "private": true,
   "type": "module",
-  "description": "Internal gitagent-backed registry for Panopticon_Swarm agent profiles",
+  "description": "Internal gitagent-backed registry for panopticon_swarm agent profiles",
   "scripts": {
     "register": "node scripts/register-agent.mjs",
     "validate": "node scripts/validate.mjs",
