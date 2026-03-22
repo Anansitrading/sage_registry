@@ -22,9 +22,7 @@ export interface AgentIndex {
   generated_at: string;
 }
 
-const INDEX_URL = import.meta.env.DEV
-  ? "/index.json"
-  : "/index.json";
+const INDEX_URL = `${import.meta.env.BASE_URL}index.json`;
 
 let cached: AgentIndex | null = null;
 
