@@ -3,6 +3,7 @@ import { existsSync } from 'node:fs';
 import { join } from 'node:path';
 import {
   ROOT,
+  buildParityReport,
   buildCatalogReadme,
   buildCodexSkill,
   catalogDir,
@@ -75,6 +76,14 @@ runGitagent([
 
 buildCodexSkill(agentName, manifest);
 
+const parityReport = buildParityReport(agentName);
+if (!parityReport.pass) {
+  for (const error of parityReport.errors) {
+    console.error(`Parity error: ${error}`);
+  }
+  process.exit(1);
+}
+
 const metadata = {
   name: manifest.name,
   author: config.author,
@@ -101,4 +110,7 @@ execFileSync('node', ['scripts/build-index.mjs'], {
   stdio: 'inherit',
 });
 
+for (const warning of parityReport.warnings) {
+  console.log(`Parity warning: ${warning}`);
+}
 console.log(`Registered ${manifest.name} at ${join('agents', `${config.author}__${manifest.name}`)}`);

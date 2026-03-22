@@ -5,6 +5,7 @@
   "description": "Internal gitagent-backed registry for panopticon_swarm agent profiles",
   "scripts": {
     "register": "node scripts/register-agent.mjs",
+    "test:parity": "node scripts/test-parity.mjs",
     "validate": "node scripts/validate.mjs",
     "build:index": "node scripts/build-index.mjs"
   },

@@ -1,0 +1,4 @@
+display_name: "Agent Parity Tester"
+short_description: "Verify Claude and Codex export parity for sage_registry agents"
+default_prompt: "Check whether this registered agent keeps its Claude and Codex exports in parity with the gitagent source definition"
+invocation_policy: "implicit"

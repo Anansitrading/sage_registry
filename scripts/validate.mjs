@@ -4,6 +4,7 @@ import Ajv from 'ajv';
 import addFormats from 'ajv-formats';
 import {
   ROOT,
+  buildParityReport,
   listCatalogFolders,
   parseArgs,
   readJson,
@@ -76,6 +77,10 @@ function validateFolder(folder) {
   if (!Array.isArray(metadata.adapters) || !metadata.adapters.includes('claude-code')) {
     warnings.push('Adapters do not include claude-code');
   }
+
+  const parity = buildParityReport(metadata.name);
+  errors.push(...parity.errors);
+  warnings.push(...parity.warnings);
 
   return { pass: errors.length === 0, errors, warnings };
 }

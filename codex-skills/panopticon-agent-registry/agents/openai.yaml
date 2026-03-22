@@ -1,0 +1,4 @@
+display_name: "Sage Registry Workflow"
+short_description: "Register, validate, and install agents from sage_registry"
+default_prompt: "Use sage_registry as the source of truth for registering, validating, and installing agent profiles"
+invocation_policy: "implicit"
