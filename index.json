@@ -28,10 +28,10 @@
         "stars": 0,
         "forks": 0,
         "issues": 0,
-        "language": null,
-        "avatar": "",
-        "social_preview": "https://github.githubassets.com/assets/github-logo-55c5b9a1fe52.png",
-        "description": null
+        "language": "TypeScript",
+        "avatar": "https://avatars.githubusercontent.com/u/149474914?v=4",
+        "social_preview": "https://opengraph.githubassets.com/76158f1a4551fc89413e9a37fac944f9285b529d7bd524c3023044dd961c9728/Anansitrading/sage_registry",
+        "description": "Permanent registry for Panopticon agent profiles"
       },
       "readme": "https://raw.githubusercontent.com/Anansitrading/sage_registry/main/agents/Anansitrading__architect/README.md",
       "added_at": "2026-03-22",
@@ -39,5 +39,5 @@
     }
   ],
   "total": 1,
-  "generated_at": "2026-03-22T22:21:20.866Z"
+  "generated_at": "2026-03-22T22:31:23.438Z"
 }
