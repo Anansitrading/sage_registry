@@ -6,6 +6,7 @@ These Codex skills are versioned in `sage_registry` so the registry workflow its
 - `agent-parity-tester/` verifies Claude/Codex parity for registered agents
 - `gitagent-harness-vcs/` treats agent repos as version-controlled harnesses with memory, knowledge, hooks, CI, audit, and human review surfaces
 - `spawn-architect/` turns "spawn architect" into a one-step architect-agent launch instead of requiring manual skill attachment
+- `superconductor-backup-20260323/` archives the live March 23, 2026 `superconductor` skill plus its `conductor` support tree from this machine
 
 The live machine-local installs normally live under:
 
