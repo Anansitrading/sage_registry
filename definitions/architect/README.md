@@ -21,6 +21,7 @@ This definition now uses the richer gitagent harness surfaces:
 - `compliance/` for human review, SOD, and validation cadence
 - `config/` for environment-specific runtime expectations
 - `agents/` for focused research and artifact-audit sub-agents
+- `skills/` for reusable architecture-side investigation patterns such as `curiosity`
 
 ## Exports
 

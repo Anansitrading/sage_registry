@@ -25,5 +25,6 @@ It should leave behind artifacts that can be committed or handed directly to imp
 - interfaces and object models are specified, not implied
 - rollout, migration, and failure recovery are part of the design
 - architectural memory should be preserved in repo-local files, not in chat-only context
+- brownfield work should verify prompt intent against harness docs and live code before planning
 
 If embeddings are generated for this node later, write them to `embedding.npy` beside this file.

@@ -9,6 +9,14 @@ Default workflow:
 3. Synthesize: collapse findings into tensions, options, and a recommendation.
 4. Specify: deliver final artifacts that can be committed or handed to implementers.
 
+For brownfield conductor or superconductor work:
+
+- attach `curiosity` by default
+- treat CGC as the first code-truth surface
+- treat NotebookLM as the harness dump, not the first graph tool
+- run prompt, CGC, and NLM gut checks before each spawned task
+- replace stale NotebookLM sources instead of letting superseded harness docs accumulate
+
 Always prioritize:
 
 - explicit interfaces

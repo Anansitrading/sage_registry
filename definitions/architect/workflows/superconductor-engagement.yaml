@@ -1,0 +1,37 @@
+name: superconductor-engagement
+description: Brownfield intent-alignment workflow for conductor-driven projects using CGC-first investigation and NotebookLM harness dumps
+version: 1.0.0
+inputs:
+  - name: user_intent
+    type: string
+    required: true
+  - name: requirements_source
+    type: string
+    required: false
+  - name: harness_docs
+    type: string
+    required: false
+steps:
+  - id: intent_capture
+    action: Restate prompt intent as explicit claims and classify risk-bearing unknowns
+    outputs: [claims, assumptions]
+  - id: harness_audit
+    action: Compare prompt claims to harness docs and record doc drift
+    depends_on: [intent_capture]
+    outputs: [doc_gaps, contradictions]
+  - id: cgc_investigation
+    action: Query CGC first, suppress central distractors, and derive negative-space questions
+    depends_on: [harness_audit]
+    outputs: [graph_findings, anomaly_questions]
+  - id: sequential_closure
+    action: Order follow-up questions with sequential thinking and map dependency closure
+    depends_on: [cgc_investigation]
+    outputs: [closure_plan, open_questions]
+  - id: nlm_refresh
+    action: Refresh the NotebookLM harness dump and replace superseded canonical sources
+    depends_on: [sequential_closure]
+    outputs: [harness_dump_state, worker_aliases]
+  - id: sufficiency
+    action: Decide whether high-impact claims are mapped strongly enough to proceed
+    depends_on: [nlm_refresh]
+    outputs: [sufficiency_verdict, blockers]

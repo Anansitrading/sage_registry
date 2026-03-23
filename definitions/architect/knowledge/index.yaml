@@ -18,6 +18,11 @@ documents:
     tags: [systems, integrations, repo]
     priority: medium
     description: Systems and interface assumptions the architect typically reasons across
+  - path: systems/superconductor/context.md
+    tags: [superconductor, brownfield, conductor, cgc, notebooklm]
+    priority: high
+    always_load: true
+    description: Brownfield intent-alignment defaults for CGC-first investigation, NotebookLM harness dumps, and recurring gut checks
   - path: systems/registry/context.md
     tags: [registry, release, catalog]
     priority: medium

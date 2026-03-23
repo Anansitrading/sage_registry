@@ -79,6 +79,56 @@ Use this skill when the work product needs to be architectural rather than merel
 - measurable language over vague adjectives
 - repository-local artifacts over hidden assumptions
 
+### curiosity
+Use when brownfield requirements, harness docs, and live code may disagree, when graph gaps or peripheral modules matter more than central utilities, or when you need forensic investigation questions before planning.
+
+# curiosity
+
+Curiosity is the architect's brownfield alignment skill. It protects user intent from drifting away from harness docs and implementation reality.
+
+## Overview
+
+Curiosity compares three surfaces:
+
+1. prompt intent
+2. harness docs
+3. live code graph evidence
+
+It then converts mismatches and graph absences into targeted forensic questions.
+
+## Core Loop
+
+1. Restate the user's prompt as explicit claims.
+2. Audit the harness docs before planning.
+3. Query CGC first and treat it as the primary graph truth.
+4. Suppress central utility nodes and inspect negative space:
+   - missing expected edges
+   - orphaned modules
+   - bridge nodes
+   - ownership gaps
+   - boundary fragility
+   - spec drift
+   - silent-failure paths
+5. Use `sequential-thinking` to order the open questions into dependency closure.
+6. Use NotebookLM as the harness dump for requirements, docs, research notes, and rendered artifacts.
+7. Before every spawn, run prompt, CGC, and NLM gut checks.
+8. When a canonical harness source changes, delete or replace the stale NotebookLM source under the same canonical title.
+9. Preserve context by attaching required skills explicitly to spawned workers, preferring reliable superpowers skills when they cover the task.
+
+## Gap Classes
+
+- `intent-doc drift`
+- `doc-code drift`
+- `missing documentation`
+- `undocumented implementation`
+
+## Operating Rules
+
+- Trust code over docs when they conflict.
+- Do not use NotebookLM as the first-pass graph tool when CGC is available.
+- Do not declare sufficiency until each high-impact claim maps to code, docs, or an explicit unresolved question.
+- Recommend doc refreshes, source replacement, and structural clarifications when the harness is stale or hard to follow.
+
 
 <!-- Model: gpt-5.4 -->
 
@@ -886,6 +936,7 @@ It should leave behind artifacts that can be committed or handed directly to imp
 - interfaces and object models are specified, not implied
 - rollout, migration, and failure recovery are part of the design
 - architectural memory should be preserved in repo-local files, not in chat-only context
+- brownfield work should verify prompt intent against harness docs and live code before planning
 
 If embeddings are generated for this node later, write them to `embedding.npy` beside this file.
 
@@ -904,6 +955,8 @@ If embeddings are generated for this node later, write them to `embedding.npy` b
 - verify any stale-risk facts before architecture depends on them
 - cite or at least record the provenance of critical design assumptions
 - escalate uncertainty when it changes downstream implementation or release cost
+- for brownfield intake, use CGC before NotebookLM when code-graph truth matters
+- treat NotebookLM as a refreshable harness dump; replace stale sources rather than accumulating superseded copies
 
 ## Review Policy
 
@@ -916,3 +969,44 @@ If embeddings are generated for this node later, write them to `embedding.npy` b
 - the repository is the primary coordination surface
 - plans, decisions, and interfaces belong in versioned artifacts
 - prefer mechanical enforcement to convention when the two conflict
+- before each spawned task, run prompt, CGC, and NLM gut checks if the harness may have changed
+- preserve context by attaching the required skills to spawned workers explicitly, preferring reliable superpowers skills when they fit the task
+
+
+## Reference: systems/superconductor/context.md
+# Superconductor Context
+
+For brownfield conductor work, the architect defaults to a superconductor posture:
+
+1. align prompt intent before planning
+2. audit harness docs before relying on them
+3. use CGC as the primary code-graph surface
+4. use NotebookLM as the harness dump and retrieval layer
+5. keep worker context fresh through repeated gut checks
+
+## Working Order
+
+1. prompt claim extraction
+2. harness doc audit
+3. CGC investigation
+4. sequential dependency closure
+5. NotebookLM harness dump refresh
+6. sufficiency decision
+7. rendered artifacts and worker handoff
+
+## Gut Check Habit
+
+Before each spawned task and after each material harness update:
+
+- run a prompt gut check
+- run a CGC gut check
+- run an NLM gut check
+- attach the required skills explicitly, with superpowers skills preferred when they cover the work reliably
+
+If NotebookLM is stale, replace or delete superseded sources before the next worker uses them.
+
+## Source Of Truth Rule
+
+- CGC answers where current code truth lives.
+- NotebookLM answers what the harness currently says and what the current research packet contains.
+- If code and docs disagree, trust code and write the doc correction requirement into the artifact set.
